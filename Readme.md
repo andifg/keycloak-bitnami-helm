@@ -15,5 +15,9 @@ Edit values inside `values.yaml`
 helm install keycloak oci://registry-1.docker.io/bitnamicharts/keycloak --version 17.3.5 -f values.yaml
 ```
 
+3. Create config map to be used to import realm
 
+```bash
+oc apply -f configmap.yaml
+```
 
