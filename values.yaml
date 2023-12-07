@@ -21,9 +21,3 @@ postgresql:
 auth:
   adminUser: admin	
 
-initdbScripts:
-  my_init_script.sh: |
-      #!/bin/bash
-      echo "Do something."
-      #kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin --password $KEYCLOAK_ADMIN_PASSWORD --config /tmp/config.json
-      #kcadm.sh create realms -s realm=Coffee-app -s enabled=true --config /tmp/config.json
