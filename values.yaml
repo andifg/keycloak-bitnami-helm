@@ -5,18 +5,37 @@ proxy: edge
 podSecurityContext:
   enabled: false
 
+
+extraStartupArgs: "--import-realm"
+
+
 containerSecurityContext:
   enabled: false
 
+extraVolumes:
+  - name: inital-realm
+    configMap:
+      name: keycloak-config
+
+extraVolumeMounts:
+  - name: inital-realm
+    mountPath: /opt/bitnami/keycloak/data/import/
 
 ingress:
   enabled: true
+  hostname: keycloak-test.apps.ocp4.gummy-bears.de
+  extraTls:
+    - {}
+
+
 postgresql:
   primary:
     podSecurityContext:
       enabled: false
     containerSecurityContext:
       enabled: false
+  auth:
+    existingSecret: keycloak-postgres-password
 
 auth:
   adminUser: admin	
